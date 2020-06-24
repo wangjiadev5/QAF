@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 
-import com.sun.javafx.stage.WindowHelper;
+//import com.sun.javafx.stage.WindowHelper;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import org.openqa.selenium.By;
@@ -26,12 +26,12 @@ import org.openqa.selenium.WebElement;
 @QAFTestStepProvider
 public class GoogleStepDefs {
 	@Given("^I am on Google Search Page$")
-	public void I_am_on_Google_Search_Page() throws Throwable {
+	public void I_am_on_Google_Search_Page() {
 		new WebDriverTestBase().getDriver().get("http://www.google.com/");
 	}
 
 	@When("^I search for \"([^\"]*)\"$")
-	public void I_search_for(String searchKey) throws Throwable {
+	public void I_search_for(String searchKey) {
 		QAFExtendedWebElement searchBoxElement = new QAFExtendedWebElement("search.text.box");
 		QAFExtendedWebElement searchBtnElement = new QAFExtendedWebElement("search.button");
 
@@ -42,12 +42,12 @@ public class GoogleStepDefs {
 		// We also used Javascript click because the element was getting hidden in
 		// Desktop Web due to suggestions and was not clickable. This java script click
 		// will work for both desktop and mobile in this case.
-		JavascriptExecutor js = (JavascriptExecutor) DeviceUtils.getQAFDriver();
+		JavascriptExecutor js =  DeviceUtils.getQAFDriver();
 		js.executeScript("arguments[0].click();", searchBtnElement);
 	}
 
 	@Then("^it should have \"([^\"]*)\" in search results$")
-	public void it_should_have_in_search_results(String result) throws Throwable {
+	public void it_should_have_in_search_results(String result)  {
 		QAFExtendedWebElement searchResultElement = new QAFExtendedWebElement("partialLink=" + result);
 		searchResultElement.verifyPresent(result);
 	}
@@ -63,7 +63,7 @@ public class GoogleStepDefs {
 
 
 	@Given("^I am openning wanbo url$")
-	public void iAmOpenningWanboUrl() throws InterruptedException, IOException {
+	public void iAmOpenningWanboUrl() throws InterruptedException {
 //		DataBase.openBrower();
 		WebDriver webDriver=DataBase.getWebDiver();
 		webDriver.manage().window().maximize();
