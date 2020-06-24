@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Appium Demo Suite" verbose="0" parallel="tests">
+    <listeners>
+        <listener class-name="com.quantum.listeners.QuantumReportiumListener"/>
+    </listeners>
+
+    <!-- To use actual AppiumDriver classes defined    -->
+    <!-- by driverClass property in env.resources dirs -->
+    <!-- Set driver.name value to perfectoDriver       -->
+<!--    <parameter name="driver.name" value="androidDriver"/>-->
+
+    <test name="Android Calc Test1" enabled="true">
+        <parameter name="driver.name" value="chromeDriver"/>
+        <parameter name="webdriver.chrome.driver" value="C:\Windows\Google Chrome\Chrome\chromedriver.exe"/>
+        <parameter name="env.resources" value="src/main/resources/web"/>
+        <groups>
+            <run>
+                <include name="@ths"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
+        </classes>
+    </test>
+</suite>

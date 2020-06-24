@@ -1,0 +1,2 @@
+ths.login.but="xpath=//div[@class="login fr"]/a[1]"
+#ths.login.but={\"locator\":\"xpath=//div[@class="login fr"]/a[1]\",\"desc\":\"Search Text Box\"}

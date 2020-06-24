@@ -1,0 +1,34 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Appium Demo Suite" verbose="0" parallel="tests">
+    <listeners>
+        <listener class-name="com.quantum.listeners.QuantumReportiumListener"/>
+    </listeners>
+
+    <!-- To use actual AppiumDriver classes defined    -->
+    <!-- by driverClass property in env.resources dirs -->
+    <!-- Set driver.name value to perfectoDriver       -->
+<!--    <parameter name="driver.name" value="androidDriver"/>-->
+
+    <test name="Android Calc Test" enabled="true">
+        <parameter name="driver.capabilities.platformName" value="Android"/>
+<!--        <parameter name="driver.capabilities.deviceName" value="127.0.0.1:62001"/>-->
+        <parameter name="driver.capabilities.automationName" value="Appium"/>
+<!--        <parameter name="driver.capabilities.unid" value="R28M316YWYF"/>-->
+<!--        <parameter name="driver.capabilities.appPackage" value="android.zhibo8"/>-->
+<!--        <parameter name="driver.capabilities.appActivity" value="android.zhibo8.ui.contollers.main.MainActivity"/>-->
+        <parameter name="remote.server" value="http://0.0.0.0:4723/wd/hub"/>
+<!--        <parameter name="remote.port" value="4723"/>-->
+        <groups>
+            <run>
+<!--                <include name="@zhibo8"/>-->
+<!--                <exclude name="@WanBo"/>-->
+<!--                <exclude name="@daletou"/>-->
+<!--                <include name="@XDM"/>-->
+                <include name="@Launcher"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
+        </classes>
+    </test>
+</suite>
